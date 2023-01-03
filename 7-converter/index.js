@@ -1,17 +1,28 @@
-function convertRub(summ, currency, targetСurrency) {
-    const rateUSD = 72;
-    const converterRubtoUSD = () => summ / rateUSD;
-    const converterUSDtoRub = () => summ * rateUSD;
 
+const ExchangeRatesUSDandEUR = {
+    USD: 1.07,
+    EUR: 0.95,
+};
+const ExchangeRatesUSDandRUB = {
+    USD: 72,
+    RUB: 0.014
+};
+
+function convertRub(sum, objRate) {
+    const objKeysRate = Object.keys(objRate);
+    const [currency, targetСurrency] = objKeysRate
+    const converterCurrencytoTargetСurrency = () => sum / objRate[currency];
+    const converterTargetСurrencytoСurrency = () => sum * objRate[targetСurrency];
     switch (`${currency}/${targetСurrency}`) {
-        case ('rub/usd'):
-            return converterRubtoUSD();
+        case (`${currency}/${targetСurrency}`):
+            return converterCurrencytoTargetСurrency();
             break;
-        case ('usd/rub'):
-            return converterUSDtoRub();
+        case (`${currency}/${targetСurrency}`):
+            return converterTargetСurrencytoСurrency();
             break;
         default:
             return null;
             break;
     }
+
 }
