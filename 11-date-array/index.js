@@ -11,7 +11,6 @@ function checkArraOfdate(arr) {
                 return dataStr;
             }
         })
-    console.log(formatData);
     return formatData;
 }
 
