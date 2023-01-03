@@ -1,33 +1,38 @@
-function check(cryptoPass) {
+function check(cryptoPass, pass) {
     const passArr = cryptoPass.split('');
-    const passLength = passArr.length;
-    const firstElement = passArr.slice(0, 1)[0];
-    passArr.push(firstElement);
-    passArr.splice(0, 1);
-    const secondElement = passArr.slice(-2)[0];
-    passArr.splice(passArr.indexOf(secondElement), 1);
-    passArr.splice(1, 0, secondElement);
-
-    if (cryptoPass.length > 4) {
-        const middle = passArr.slice(Math.floor(passLength / 2), passArr.indexOf(Math.floor(passLength / 2) + 1)).reverse();
-        passArr.splice(passArr.indexOf(middle[0]), 1, middle[0]);
-        passArr.splice(passArr.indexOf(middle[1]) + 1, 1, middle[1]);
-    }
-
-    return passArr.join('');
-};
+    const ssLetters = passArr.slice(0, 2);
+    passArr.splice(passArr.indexOf(ssLetters[0]), 2);
+    passArr.splice(3, 0, ssLetters[0], ssLetters[1]);
+    const apLetters = passArr.slice(0, 2).reverse();
+    passArr.splice(0, 2, apLetters[0], apLetters[1]);
+    const dLetter = passArr.slice(2, 3)[0];
+    passArr.splice(passArr.indexOf(dLetter), 1);
+    passArr.push(dLetter);
+    const wLetter = passArr.slice(-2)[0];
+    passArr.splice(passArr.indexOf(wLetter), 1);
+    passArr.splice(4, 0, wLetter);
+    let res = passArr.join('');
+    return res === pass;
+}
+check('ssapdorw', 'password');
 
 function crypto(pass) {
+    if (pass.length < 6) { return null }
     const passArr = pass.split('');
-    const passLength = passArr.length;
-    const last = passArr.slice(-1);
-    const secondElement = passArr.slice(1, 2);
-    const middle = passArr.slice(Math.floor(passLength / 2), Math.floor(passLength / 2) + 2).reverse();
-    passArr.unshift(last[0]);
-    passArr.splice(-1);
-    passArr.splice(passArr.indexOf(middle[0]), 1, middle[1]);
-    passArr.splice(passArr.indexOf(middle[1]), 1, middle[0]);
-    passArr.splice(passArr.indexOf(secondElement[0]), 1);
-    passArr.push(secondElement[0])
+    const ssLetters = passArr.slice(2, 4);
+    passArr.splice(passArr.indexOf(ssLetters[0]), passArr.indexOf(ssLetters[1]));
+    passArr.unshift(ssLetters[0], ssLetters[1]);
+    const aLetter = passArr.slice(3, 4)[0];
+    passArr.splice(passArr.indexOf(aLetter), 1);
+    passArr.splice(2, 0, aLetter);
+    const last = passArr.slice(-1)[0];
+    passArr.splice(-1, 1);
+    passArr.splice(-3, 0, last);
+    const wLetter = passArr.slice(-3)[0];
+    passArr.splice(passArr.indexOf(wLetter), 1);
+    passArr.push(wLetter);
+
     return passArr.join('');
 };
+
+crypto('password')
