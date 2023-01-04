@@ -1,7 +1,3 @@
-function check(cryptoPass, pass) {
-    return crypto(crypt) === pass
-}
-check('ssapdorw', 'password');
 
 const crypto = (pass) => {
     const passArr = pass.split('');
@@ -10,10 +6,12 @@ const crypto = (pass) => {
     const firstPart = passArr.slice(0, middle).reverse();
     const secondPart = passArr.slice(middle);
     [secondPart[0], secondPart[secondPart.length - 1]] = [secondPart[secondPart.length - 1], secondPart[0]]
-
     return [...firstPart, ...secondPart].join('');
 
 }
 
-
+const check = (cryptoPass, pass) => {
+    return crypto(cryptoPass) === pass;
+}
 crypto('password')
+check('ssapdorw', 'password');
