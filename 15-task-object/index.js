@@ -6,9 +6,9 @@ const ToDoList = {
     },
 
     removeTask: function (removeId) {
-        this.allTasks.map((task) => {
+        this.allTasks.map((task, key) => {
             if (removeId === task.id) {
-                this.allTasks.splice(task.id, 1);
+                this.allTasks.splice(key, 1);
             }
         })
     },
