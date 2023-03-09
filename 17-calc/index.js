@@ -6,21 +6,21 @@ const result = document.querySelector('#total');
 
 function resetInputs(inputs) {
     inputs.forEach((input) => {
-        input.value = null;
+        input.value = "";
     })
 }
 
 buttonsCalc.forEach(function (btn) {
     btn.addEventListener('click', function () {
-        if (inputsCalc[0].value.value === '' || inputsCalc[1].value === '') {
+        if (inputsCalc[0].value === "" || inputsCalc[1].value === "") {
             return false;
         }
-        const id = this.getAttribute('id');
+        const idOperation = this.getAttribute('id');
         const input1 = Number(inputsCalc[0].value);
         const input2 = Number(inputsCalc[1].value);
         let res = 0;
 
-        switch (id) {
+        switch (idOperation) {
             case ('plus'):
                 res = input1 + input2;
                 break;
@@ -31,7 +31,11 @@ buttonsCalc.forEach(function (btn) {
                 res = input1 * input2;
                 break;
             case ('split'):
-                res = input1 / input2;
+                if (input2 !== 0) {
+                    res = input1 / input2;
+                } else {
+                    alert('You can\'t divide by zero');
+                }
                 break;
         }
         result.innerText = res;
