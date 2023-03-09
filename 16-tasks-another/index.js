@@ -10,9 +10,9 @@ const ToDoList = {
         this.allTasks.splice(idTask, 1);
     },
 
-    updateTask: function ({ ...obj }) {
+    updateTask: function (updateId, { ...obj }) {
         this.allTasks.find((task) => {
-            if (obj.updateId === task.id) {
+            if (updateId === task.id) {
                 if (obj.title !== '') { task.title = obj.title }
                 if (obj.priority !== '') { task.priority = obj.priority }
             }
