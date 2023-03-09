@@ -1,0 +1,19 @@
+[{
+    "id":1,
+    "icon": "sport",
+    "name" : "pushups",
+    "target": 10,
+    "days": [
+        {"comment": "First day is always hard"},
+        {"comment": "Second day is more easy"}
+    ]
+},
+{
+    "id":2,
+    "icon": "water",
+    "name" :"Drink enought water",
+    "target": 10,
+    "days": [
+        {"comment": "Well done"}
+     ]
+}]

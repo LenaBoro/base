@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treker habbits</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/index.css">
+   
+</head>
+<body>
+    <div class="app">
+        <div class="sidenav">
+                <img class="logotype" src="./images/logo.svg" alt="logo habbits treker">  
+            <nav class="menu">
+                <!-- <button class="menu__btn menu__btn--active" menu-habbit-id = "1">
+                    <img src="./images/sport.svg" alt="logo"> 
+                </button>
+                -->
+            </nav>
+            <button  class="menu__btn menu__add" id="add" menu-habbit-id = "add">
+                <img src="./images/add.svg" alt="logo"> 
+            </button>
+        </div>
+
+        <section class="main">
+              <header class="header">
+                <h1 id="main-titile" class="title">Отжимания</h1>
+                <div class="propgress">
+                    <div class="progress__text">
+                        <p class="progress__name">Progress</p>
+                        <p class="progress__percent">80%</p>
+                    </div>
+                    <div class="progress__bar">
+                        <div class="progress__cover-bar"></div>
+                    </div>
+                </div>
+              </header>  
+              <main>
+                   <div class="habbit">
+                        <div class="habbit__day">Day 1</div>
+                        <div class="habbit__comment">Comment</div>
+                        <button class="habbit__delete"><img src="./images/delete.svg" alt="delete habbit"></button>
+                        
+                   </div>  
+
+                    <div class="habbit">
+                        <div class="habbit__day">Day 2</div>
+                        <form class="habbit__form">     
+                            <input class="input__comment" type="text" placeholder="comment"/>
+                            <button class="habbit__add">Ready</button>
+                        </form>
+                    </div>  
+
+              </main>
+            </div>
+    </div>
+
+    <script src="./scripts/index.js">  </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+*{
+    box-sizing: border-box;
+}
+button, 
+input{
+    outline:none;
+}
+
+body{
+    font-family: 'Comfortaa', cursive;
+    margin: 0;
+    padding:0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+     
+}
+.logotype{
+    margin-bottom: 3rem;
+}
+.app{
+    display:flex;
+    width: 100%;
+    max-width: 1012px;
+}
+.sidenav{
+    min-height: 100vh;
+    padding: 2rem; 
+    background:#f3f4f8;
+    align-items: center;
+    flex-flow:column wrap;
+    display:flex;
+
+}
+.main{
+   background:#F3F6FD;
+   min-height: 100vh;
+   width: 100vw;
+   padding: 2rem; 
+}
+.menu{
+    display:flex;
+    flex-flow:column wrap;
+    gap: 1rem; 
+    margin-bottom: 1rem;
+    align-items: center;
+}
+.menu__btn{
+    background: #FFFFFF;
+    box-shadow: 0px 8px 14px rgba(62, 107, 224, 0.12);
+    border-radius: 14px;
+    width: 46px;
+    height: 45px;
+    outline:none;
+    border:none;
+    cursor:poiner;
+}
+.menu__add{
+    border: 1px solid #CAD5FF;
+}
+.menu__btn:hover{
+  background: #6A6AFB;
+  box-shadow: 0px 8px 14px rgba(62, 107, 224, 0.12);
+}
+ .menu__btn:hover img{
+  filter: brightness(0) invert(1);  
+  }
+
+  .menu__btn--active{
+    background: #5051F9;
+    box-shadow: 0px 8px 14px rgba(62, 107, 224, 0.12);
+  }   
+  
+  .menu__btn--active img{
+    filter: brightness(0) invert(1);  
+}
+
+.header{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    min-width: 100%;
+    align-items: center;
+    margin-bottom: 2.3rem;
+}
+  
+.title{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 33px;
+}
+
+
+.progress__text{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    direction: row;
+    gap: 1rem;
+}
+
+.progress__bar{
+    width: 16rem;
+    height: 5px;
+    background: #E6E9ED;
+    border-radius: 4px;
+    position: relative;
+}
+.progress__cover-bar{
+    width: 80%;
+    height: 5px;
+    background: #5051F9;
+    border-radius: 4px;  
+    position: absolute;
+    top:0;
+    left:0;
+}
+.progress__name{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+}
+.progress__percent{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 13px;
+    color: #768396;
+}
+
+.habbit{
+    display:flex;
+    flex-flow: row nowrap;
+    width:80%;
+    background: #FFFFFF;
+    border-radius: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.habbit__form{
+    padding-left: 2rem;
+}
+.habbit__day{
+    background: #FBFAFF;
+    width: 7.5rem;
+    padding: 1.5rem 2rem;
+}
+.habbit__comment{
+    padding:0 2rem; 
+    width: 32rem;
+}
+.habbit__delete{
+    padding: 1rem;
+    cursor: pointer;
+    outline: none; background:none;
+    border:none;
+}
+.habbit__add{
+    background: #EDECFE;
+    border-radius: 9px;
+    font-size: 13px;
+    line-height: 14px;
+    color: #5051F9;
+    border:none;
+    padding: 1rem 1.4rem;
+    cursor:pointer;
+
+}
+
+.input__comment{
+    position:relative;
+    background: #FFFFFF;
+    border: 1px solid #E7EBFB;
+    border-radius: 9px;
+    padding: 1rem 3rem;
+    width: 29rem;
+    background: url('../images/comment.svg')no-repeat 1rem;
+}
