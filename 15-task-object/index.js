@@ -1,29 +1,24 @@
 const ToDoList = {
     allTasks: [],
 
-    createTask: function (title, id, priority) {
-        this.allTasks.push({ title: title, id: id, priority: priority });
+    createTask: function ({ ...obj }) {
+        this.allTasks.push(obj);
     },
 
     removeTask: function (removeId) {
-        this.allTasks.map((task, key) => {
-            if (removeId === task.id) {
-                this.allTasks.splice(key, 1);
+        const idTask = this.allTasks.findIndex(task => task.id === removeId)
+        this.allTasks.splice(idTask, 1);
+    },
+
+    updateTask: function ({ ...obj }) {
+        this.allTasks.find((task) => {
+            if (obj.updateId === task.id) {
+                if (obj.title !== '') { task.title = obj.title }
+                if (obj.priority !== '') { task.priority = obj.priority }
             }
         })
     },
-
-    updateTask: function (updateId, title, priority) {
-        this.allTasks.map((task) => {
-            if (updateId === task.id) {
-                if (title !== '') { task.title = title }
-                if (priority !== '') { task.priority = priority }
-            }
-        })
-    },
-
     sortTasks: function () {
         this.allTasks.sort((a, b) => a.priority - b.priority)
     }
-
 }
