@@ -43,14 +43,17 @@ function lunaLoop(str) {
     const formatSrt = str.replace(/-/g, '').split('');
     let lunaCount = 0;
     for (let i = 0; i < formatSrt.length; i++) {
+        let numberStr = formatSrt[i];
+
         if (i % 2 === 0) {
-            formatSrt[i] *= 2;
-            if (formatSrt[i] > 9) {
-                formatSrt[i] = formatSrt[i].toString().split('');
-                formatSrt[i] = Number(formatSrt[i][0]) + Number(formatSrt[i][1]);
+            numberStr *= 2;
+            if (numberStr > 9) {
+                numberStr = numberStr.toString().split('');
+                numberStr = Number(numberStr[0]) + Number(numberStr[1]);
             }
         }
-        lunaCount += Number(formatSrt[i]);
+
+        lunaCount += Number(numberStr);
     }
     if (lunaCount % 10 === 0) { return true } else { return false }
 
@@ -59,23 +62,23 @@ function lunaLoop(str) {
 lunaLoop(str);
 
 function lunaReduce(str) {
-    const regexpLuna = new RegExp('[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}');
-    if (regexpLuna.test(str) === false) {
+    if (str.replace(/-/g, '').length < 16) {
         return false;
     }
+
     const formatSrt = str.replace(/-/g, '').split('');
-    let res = formatSrt.reduce((acc, curr, index, arrStr) => {
-
+    const res = formatSrt.reduce((acc, curr, index) => {
+        let numberStr = curr;
         if (index % 2 == 0) {
-            arrStr[index] = Number(curr) * 2;
+            numberStr = Number(numberStr) * 2;
 
-            if (Number(arrStr[index]) > 9) {
-                arrStr[index] = arrStr[index].toString().split('');
-                arrStr[index] = Number(arrStr[index][0]) + Number(arrStr[index][1]);
+            if (Number(numberStr) > 9) {
+                numberStr = numberStr.toString().split('');
+                numberStr = Number(numberStr[0]) + Number(numberStr[1]);
             }
         }
-        acc += Number(arrStr[index]);
-        return acc
+        acc += Number(numberStr);
+        return acc;
     }, 0);
     if (res % 10 === 0) { return true } else { return false }
 }
