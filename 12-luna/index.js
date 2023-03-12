@@ -55,8 +55,7 @@ function lunaLoop(str) {
 
         lunaCount += Number(numberStr);
     }
-    if (lunaCount % 10 === 0) { return true } else { return false }
-
+    return !(lunaCount % 10);
 }
 
 lunaLoop(str);
@@ -70,9 +69,8 @@ function lunaReduce(str) {
     const res = formatSrt.reduce((acc, curr, index) => {
         let numberStr = curr;
         if (index % 2 == 0) {
-            numberStr = Number(numberStr) * 2;
-
-            if (Number(numberStr) > 9) {
+            numberStr = numberStr * 2;
+            if (numberStr > 9) {
                 numberStr = numberStr.toString().split('');
                 numberStr = Number(numberStr[0]) + Number(numberStr[1]);
             }
@@ -80,5 +78,6 @@ function lunaReduce(str) {
         acc += Number(numberStr);
         return acc;
     }, 0);
-    if (res % 10 === 0) { return true } else { return false }
+
+    return !(res % 10);
 }
