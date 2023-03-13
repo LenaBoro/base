@@ -71,8 +71,7 @@ function lunaReduce(str) {
         if (index % 2 == 0) {
             numberStr = numberStr * 2;
             if (numberStr > 9) {
-                numberStr = numberStr.toString().split('');
-                numberStr = Number(numberStr[0]) + Number(numberStr[1]);
+                numberStr = numberStr - 9;
             }
         }
         acc += Number(numberStr);
