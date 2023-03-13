@@ -1,37 +1,37 @@
-const dateArr = ['00/01/2023', '10_022023', '10/02---2023', '10-00-1000', '10/00/2020'];
+const dateArr = ['ff/ff/2023', '10_022023', '10/02---2023', '10-01-1000', '10/01/2020'];
 
-function checkArraOfdate(arr) {
-    const formatData = arr.filter((dataEl) => {
-        if ((dataEl.length === 10) &&
-            (dataEl[2] === dataEl[5]) &&
-            (dataEl[2] === '-' || dataEl[2] === '/')) {
-            return dataEl;
-        }
-    });
+function transformFormateDate(dateStr) {
+    let dateArray = dateStr.split('/');
+    let flagMMDDYYYYFormat = false;
 
-    const checkData = formatData.filter((dataEl) => {
-        if (dataEl[2] === '-') {
-            let dateExmpl1 = new Date(dataEl[2], dataEl[1], dataEl[0]);
-            let dateJoin = dataEl.split('-');
-            if (dateExmpl1.getFullYear() === dateJoin[2]
-                && (dateExmpl1.getMonth() === dateJoin[1])
-                && (dateExmpl1.getDate() === dateJoin[0])) {
-                return dataEl;
-            }
-            return dataEl;
-        } else if (dataEl[2] == '/') {
-            let dateExmpl2 = new Date(dataEl[2], dataEl[0], dataEl[1]);
-            let dateJoin = dataEl.split('/')
-            if (dateExmpl2.getFullYear() === dateJoin[2]
-                && (dateExmpl2.getMonth() === dateJoin[0])
-                && (dateExmpl2.getDate() === dateJoin[1])) {
-                return dataEl;
-            }
-            return dataEl;
-        }
-    }).map(data => data.split(/-|_|\//).join('-'))
+    if (dateArray.length !== 3) {
+        dateArray = dateStr.split('-');
+        flagMMDDYYYYFormat = true
+    }
 
-    return checkData;
+    if (dateArray.length !== 3) {
+        return null
+    }
+    return isDateValid(dateArray, flagMMDDYYYYFormat);
 }
 
-checkArraOfdate(dateArr);
+function isDateValid(dateArray, flagFormat) {
+    let [day, month, year] = [];
+    let date = '';
+    if (flagFormat) {
+        [day, month, year] = dateArray.map(dateEl => Number(dateEl));
+    } else {
+        [month, day, year] = dateArray.map(dateEl => Number(dateEl));
+    }
+    date = new Date(year, month - 1, day);
+    return date.getFullYear() == year && date.getMonth() == month - 1 && date.getDate() == day
+
+}
+
+function getDates(arr) {
+    const formattedArray = arr
+        .filter(transformFormateDate);
+    return formattedArray;
+}
+
+getDates(dateArr)
