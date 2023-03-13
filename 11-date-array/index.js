@@ -6,7 +6,7 @@ function transformFormateDate(dateStr) {
 
     if (dateArray.length !== 3) {
         dateArray = dateStr.split('-');
-        flagMMDDYYYYFormat = true
+        flagMMDDYYYYFormat = true;
     }
 
     if (dateArray.length !== 3) {
@@ -24,7 +24,7 @@ function isDateValid(dateArray, flagFormat) {
         [month, day, year] = dateArray.map(dateEl => Number(dateEl));
     }
     date = new Date(year, month - 1, day);
-    return date.getFullYear() == year && date.getMonth() == month - 1 && date.getDate() == day
+    return date.getFullYear() == year && date.getMonth() == month - 1 && date.getDate() == day;
 
 }
 
@@ -34,4 +34,4 @@ function getDates(arr) {
     return formattedArray;
 }
 
-getDates(dateArr)
+getDates(dateArr);
