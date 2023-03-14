@@ -29,9 +29,8 @@ function isDateValid(dateArray, formatDate) {
 }
 
 function getDates(arr) {
-    const formattedArray = arr
+    return formattedArray = arr
         .filter(transformFormateDate);
-    return formattedArray;
 }
 
 getDates(dateArr);
