@@ -11,10 +11,10 @@ const ToDoList = {
     },
 
     updateTask: function (obj) {
-        const index = this.allTask.findIndex(el => el.id === obj.id);
+        const index = this.allTasks.findIndex(el => el.id === obj.id);
         if (index !== -1) {
-            const newObj = { ...this.allTask[index], ...obj };
-            this.allTask[index] = newObj;
+            const newObj = { ...this.allTasks[index], ...obj };
+            this.allTasks[index] = newObj;
         }
     },
 
