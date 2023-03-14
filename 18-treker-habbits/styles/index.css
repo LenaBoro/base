@@ -1,0 +1,366 @@
+*{
+    box-sizing: border-box;
+}
+button, 
+input{
+    background: none;
+    border:none;
+    outline:none;
+}
+
+body{
+    font-family: 'Comfortaa', cursive;
+    margin: 0;
+    padding:0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+     
+}
+
+.logotype{
+    margin-bottom: 3rem;
+}
+
+.app{
+    display:flex;
+    width: 100%;
+    max-width: 1012px;
+}
+.sidenav{
+    min-height: 100vh;
+    padding: 2rem; 
+    background:#FBFAFF;
+    align-items: center;
+    flex-flow:column wrap;
+    display:flex;
+
+}
+.main{
+   background:#F3F6FD;
+   min-height: 100vh;
+   width: 100vw;
+   padding: 2rem; 
+}
+.menu{
+    display:flex;
+    flex-flow:column wrap;
+    gap: 1rem; 
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.icon,
+.menu__btn{
+    background: #FFFFFF;
+    box-shadow: 0px 8px 14px rgba(62, 107, 224, 0.12);
+    border-radius: 14px;
+    width: 46px;
+    height: 45px;
+    outline:none;
+    border:none;
+    cursor:poiner;
+}
+.menu__add{
+    border: 1px solid #CAD5FF;
+}
+
+.icon:hover,
+.menu__btn:hover{
+  background: #6A6AFB;
+  box-shadow: 0px 8px 14px rgba(62, 107, 224, 0.12);
+}
+
+.icon--active img,
+.icon:hover img,
+.menu__btn:hover img{
+  filter: brightness(0) invert(1);  
+  }
+
+  .menu__btn--active{
+    background: #5051F9;
+    box-shadow: 0px 8px 14px rgba(62, 107, 224, 0.12);
+  }   
+  
+  .menu__btn--active img{
+    filter: brightness(0) invert(1);  
+}
+
+.header{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    min-width: 100%;
+    align-items: center;
+    margin-bottom: 2.3rem;
+}
+  
+.title{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 33px;
+}
+
+.progress__text{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    direction: row;
+    gap: 1rem;
+}
+
+.progress__bar{
+    width: 16rem;
+    height: 5px;
+    background: #E6E9ED;
+    border-radius: 4px;
+    position: relative;
+}
+.progress__cover-bar{
+    transition: width 0.5s;
+    height: 5px;
+    background: #5051F9;
+    border-radius: 4px;  
+    position: absolute;
+    top:0;
+    left:0;
+}
+.progress__name{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+}
+.progress__percent{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 13px;
+    color: #768396;
+}
+
+.habbit{
+    display:flex;
+    flex-flow: row nowrap;
+    width:80%;
+    background: #FFFFFF;
+    border-radius: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.habbit__form{
+    padding-left: 2rem;
+    width: 100%;
+}
+.habbit__day{
+    background: #FBFAFF;
+    width: 100%;
+    max-width: 20%;
+    padding: 1.5rem 2rem;
+}
+.habbit__comment{
+    padding:0 2rem; 
+    width: 32rem;
+}
+.habbit__delete{
+    padding: 1rem;
+    cursor: pointer;
+    outline: none; background:none;
+    border:none;
+}
+
+.button,
+.habbit__add{
+    background: #EDECFE;
+    border-radius: 9px;
+    font-size: 13px;
+    line-height: 14px;
+    color: #5051F9;
+    border:none;
+    padding: 1rem 1.4rem;
+    cursor:pointer;
+
+}
+
+.input__comment{
+    position:relative;
+    background: #FFFFFF;
+    border: 1px solid #E7EBFB;
+    border-radius: 9px;
+    padding: 1rem 3rem;
+    width: 100%;
+    max-width:74%;
+    background: url('../images/comment.svg')no-repeat 1rem;
+}
+
+
+
+
+.cover{
+    position: fixed;
+    width: 100%;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    background: rgba(0, 0, 0, 0.25);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+} 
+
+.cover--hidden{
+   display:none;
+}
+
+.popup{
+    position: relative;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 14px 12px rgba(56, 56, 56, 0.05);
+    border-radius: 10px;
+    max-width: 426px;
+    width: 100%;
+    padding: 20px;
+}
+
+.popup h2{
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 27px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 19px;
+}
+.icon-label{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.popup__form{
+    width: 100%;
+   display: flex;
+   flex-flow: column wrap;
+}
+.popup__form input{
+    background: #FFFFFF;
+    border: 1px solid #E7EBFB;
+    border-radius: 9px;
+    padding: 11px 20px;
+    margin-bottom: 8px;
+}
+
+.popup__close{
+    cursor: pointer;
+    background: none;
+    outline: none;
+    border:none;
+    position: absolute;
+    top:10px;
+    right: 10px;
+}
+.icon{
+    box-shadow: none;
+    border: 1px solid #5051F9;
+    border-radius: 14px;
+    margin: 0 12px;
+    cursor: pointer;
+}
+
+.icon--active{
+    background:#5051F9;
+}
+
+.popup .subtitle{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #768396;
+    text-align: center;
+    margin-bottom: 8px;
+}
+.popup__form button{
+    display: block;
+    margin: 0 auto;
+}
+
+.habbit--none{
+    display:none;
+}
+.habbit__add--animate{
+    animation-name: bound;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-direction: alternate;
+}
+
+
+.input--error{
+    border: 1px solid red!important;
+}
+@media (max-width: 740px) { 
+    .app{
+        flex-direction: column;
+    }
+    .sidenav {
+        padding: 1rem 2rem;
+        flex-direction: row;
+        min-height: 0;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    .logotype{margin-bottom:1rem;margin-right: 16px}
+    .main{
+        padding-top:0;
+    }
+    .header{
+        flex-flow:row wrap;
+    }
+    .title{
+        width: 100%;
+    }
+    .menu__btn{
+        margin-right: 16px;
+        margin-bottom: 16px;
+    }
+    .habbit{
+        flex-flow: column wrap;
+        width: 100%;
+    }
+    .habbit__day{
+        padding: 1rem;
+        text-align:center;
+    }
+    .input__comment,
+    .habbit__form,
+    .habbit__day {
+        width: 100%;
+        max-width: 100%;
+    }
+    .habbit__form{
+        padding:0;
+        display: flex;
+    }
+    .input__comment{
+        max-width: 81%;
+    }
+    .button.habbit__add{
+        width: 100%;
+        max-width: 30%;
+    }
+}
+
+@keyframes bound {
+    from {
+      transform: scale(1);
+    }
+  
+    to {
+        transform: scale(1.2);
+    }
+  }
+  
+  
