@@ -1,26 +1,25 @@
 const ToDoList = {
     allTasks: [],
 
-    createTask: function ({ ...obj }) {
+    createTask: function (obj) {
         this.allTasks.push(obj);
     },
 
     removeTask: function (removeId) {
-        const idTask = this.allTasks.findIndex(task => task.id === removeId)
+        const idTask = this.allTasks.findIndex(task => task.id === removeId);
         this.allTasks.splice(idTask, 1);
     },
 
-    updateTask: function ({ ...obj }) {
-        this.allTasks.find((task) => {
-            if (obj.updateId === task.id) {
-                if (obj.title !== '') { task.title = obj.title }
-                if (obj.priority !== '') { task.priority = obj.priority }
-            }
-        })
+    updateTask: function (obj) {
+        const index = this.allTask.findIndex(el => el.id === obj.id);
+        if (index !== -1) {
+            const newObj = { ...this.allTask[index], ...obj };
+            this.allTask[index] = newObj;
+        }
     },
 
     sortTasks: function () {
-        this.allTasks.sort((a, b) => a.priority - b.priority)
+        this.allTasks.sort((a, b) => a.priority - b.priority);
     }
 
 }
