@@ -6,7 +6,7 @@ const ToDoList = {
     },
 
     removeTask: function (removeId) {
-        const idTask = this.allTasks.findIndex(task => task.id === removeId);
+        const idTask = this.allTasks.findIndex(task => task.id === removeId)
         this.allTasks.splice(idTask, 1);
     },
 
@@ -17,9 +17,8 @@ const ToDoList = {
             this.allTasks[index] = newObj;
         }
     },
-
+    
     sortTasks: function () {
         this.allTasks.sort((a, b) => a.priority - b.priority);
     }
-
 }
